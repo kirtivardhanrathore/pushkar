@@ -1,0 +1,58 @@
+/* Import all styles */
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+
+main{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+h1 {
+  color: #4d78ff;
+}
+
+h3{
+  color: #575756;
+}
+
+h5 {
+  color: #6b6c72;
+}
+
+h6 {
+  color: #6b6c72;
+}
+
+p {
+  color: #868686;
+}
+
+a:link {
+  color: #868686;
+}
+
+/* visited link */
+a:visited {
+  color: #868686;
+}
+
+/* mouse over link */
+a:hover {
+  color: #4d78ff;
+}
+
+/* selected link */
+a:active {
+  color: #868686;
+}
+
+
+
+/*
+*{
+  border: 1px solid rgba(240,0,0,0.2);
+}
+*/
+

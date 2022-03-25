@@ -1,0 +1,26 @@
+{
+  "name": "CartoPresent",
+  "source": [
+    "src/index.ejs"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./docs",
+      "publicUrl": "./",
+      "sourceMap": false
+    }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel serve --open",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.3.2",
+    "parcel-transformer-ejs": "^0.2.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.4",
+    "bootstrap": "^5.1.3"
+  }
+}
