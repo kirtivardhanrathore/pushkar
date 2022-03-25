@@ -1,6 +1,9 @@
 /* Import all styles */
 @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
+body {
+  background-color: #FBE5D7;
+}
 
 main{
   width: 70%;
@@ -22,11 +25,13 @@ h5 {
 }
 
 h6 {
-  color: #6b6c72;
+  color: #c67c3b;
+  line-height: 2;
 }
 
 p {
-  color: #868686;
+  color: #ffffff;
+  line-height: 2;
 }
 
 a:link {

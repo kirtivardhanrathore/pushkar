@@ -1,6 +1,5 @@
-import * as bootstrap from 'bootstrap';
+import enterViewScrolly from "../scrolly/scrolly.js";
 
-console.log("Hello Again");
+import * as bootstrap from "bootstrap";
 
-
-    
+enterViewScrolly("#doge-scrolly");

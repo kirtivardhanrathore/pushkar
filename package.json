@@ -1,5 +1,5 @@
 {
-  "name": "CartoPresent",
+  "name": "Pushkar",
   "source": [
     "src/index.ejs"
   ],
@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.4",
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "enter-view": "^2.0.1",
+    "lodash.debounce": "^4.0.8"
   }
 }
