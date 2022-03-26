@@ -1,4 +1,4 @@
-import enterViewScrolly from "../scrolly/scrolly.js";
+import enterViewScrolly from "../scrolly/enterViewScrolly.js";
 
 import * as bootstrap from "bootstrap";
 

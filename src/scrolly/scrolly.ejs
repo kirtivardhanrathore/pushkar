@@ -40,7 +40,7 @@
       align-items-start, -center, -end 
     -->
         <% scrollBlocks.forEach(function(block,i){ %>
-          <div class="col-12 px-0 slide block-<%= i %>">
+          <div class="col-12 px-0 slide block-<%= i %> <%= i===0 ? 'active':''  %> ">
             <%- include( '../ai2html-output/'+block.filename+'.ejs' ); %>
           </div>
         <% }) %>
@@ -52,14 +52,14 @@
   <div class="scroll-foreground container">
 
     <% scrollBlocks.forEach(function(block,i){ %>
-      <div class="anno-block row align-items-right" id="block-<%= i %>" >
+      <div class="anno-block row align-items-center" id="block-<%= i %>" >
 
         <% if(block.anno!=='_blank-slide_') { %>
-          <div class="annotation col-6 mx-auto">
-            <p><%= block.anno %></p>
+          <div class="annotation col-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
+            <p><%- block.anno %></p>
           </div>
         <% } else { %>
-          <div class="annotation"></div>
+          <div class="annotation invisible"></div>
         <% } %>
 
       </div>
@@ -87,6 +87,7 @@
 -->
 
 <style>
+  
   .<%= scrollerEl + "-scroll-wrapper" %> {
     display: block;
     position: relative;
@@ -128,11 +129,6 @@
     transition: opacity 0.3s ease-in;
     opacity: 1;
   }
-  .<%= scrollerEl + "-scroll-wrapper" %> .scroll-background .scroll-row .slide:first-child{
-    transition: opacity 0.3s ease-in;
-    opacity: 1;
-  }
-
 
   .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground{
     padding-top: 100vh;
@@ -152,18 +148,18 @@
 
   .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground .anno-block .annotation{
     pointer-events: all;
-    max-width: 320px;
-    right: -4%;
+    max-width: 25%; 
+
+    /* border: 1px solid rgba(125, 96, 76, 0.95); */
+    border-radius: 10px;
+    right: 0%;
     display: block;
     position: absolute;
-    background-color: #92C982;
-    border-radius: 10px;
     text-align: left;
     color: black;
     font-weight: 500;
-    line-height: 1.2;
-    /* margin: 0 auto 30px auto; */
-    
+    margin: 0 auto 30px auto; 
+    background-color: #92C982;
     padding: 1.5rem 1rem 1.5rem 1.5rem;
     height: fit-content;
   }

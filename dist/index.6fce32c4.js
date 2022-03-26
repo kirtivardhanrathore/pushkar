@@ -515,12 +515,12 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"aXYQy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _scrollyJs = require("../scrolly/scrolly.js");
-var _scrollyJsDefault = parcelHelpers.interopDefault(_scrollyJs);
+var _enterViewScrollyJs = require("../scrolly/enterViewScrolly.js");
+var _enterViewScrollyJsDefault = parcelHelpers.interopDefault(_enterViewScrollyJs);
 var _bootstrap = require("bootstrap");
-_scrollyJsDefault.default("#doge-scrolly");
+_enterViewScrollyJsDefault.default("#doge-scrolly");
 
-},{"bootstrap":"73Mmj","@parcel/transformer-js/src/esmodule-helpers.js":"hqLt5","../scrolly/scrolly.js":"fmfM3"}],"73Mmj":[function(require,module,exports) {
+},{"bootstrap":"73Mmj","@parcel/transformer-js/src/esmodule-helpers.js":"hqLt5","../scrolly/enterViewScrolly.js":"cAenV"}],"73Mmj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Alert", ()=>Alert
@@ -6285,7 +6285,7 @@ var createPopper = /*#__PURE__*/ _createPopperJs.popperGenerator({
     defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
-},{"./createPopper.js":"baIzF","./modifiers/eventListeners.js":"3ISdZ","./modifiers/popperOffsets.js":"28ox3","./modifiers/computeStyles.js":"6tYRt","./modifiers/applyStyles.js":"aW2tm","@parcel/transformer-js/src/esmodule-helpers.js":"hqLt5"}],"fmfM3":[function(require,module,exports) {
+},{"./createPopper.js":"baIzF","./modifiers/eventListeners.js":"3ISdZ","./modifiers/popperOffsets.js":"28ox3","./modifiers/computeStyles.js":"6tYRt","./modifiers/applyStyles.js":"aW2tm","@parcel/transformer-js/src/esmodule-helpers.js":"hqLt5"}],"cAenV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /* eslint-disable max-len */ var _lodashDebounce = require("lodash.debounce");
@@ -6297,10 +6297,15 @@ var _enterViewDefault = parcelHelpers.interopDefault(_enterView);
   VERICAL SCROLLY
   ---------------
  * @param {string} scrollerEl - The HTML id of the scroller block.
- */ exports.default = enterViewScrolly = (scrollerEl)=>{
+ * @param {boolean} stacked - If true, the graphics layers will stack on scroll.
+ */ const enterViewScrolly = (scrollerEl, stacked)=>{
+    // set the sizes onload and on resize
+    window.addEventListener('DOMContentLoaded', _lodashDebounceDefault.default(()=>{
+        _resize(scrollerEl);
+    }, 150));
     window.addEventListener('resize', _lodashDebounceDefault.default(()=>{
-        setWidths(scrollerEl);
-    }, 250));
+        _resize(scrollerEl);
+    }, 150));
     /* Enter Trigger */ _enterViewDefault.default({
         selector: `${scrollerEl} .scroll-enter`,
         // 0 = top of element crosses bottom of viewport (enters screen from bottom).
@@ -6333,25 +6338,32 @@ var _enterViewDefault = parcelHelpers.interopDefault(_enterView);
   */ _enterViewDefault.default({
         selector: `${scrollerEl} .anno-block`,
         enter: (el)=>{
-            document.querySelectorAll(`${scrollerEl} .slide`).forEach((slide)=>slide.classList.remove('active')
+            !stacked && document.querySelectorAll(`${scrollerEl} .slide`).forEach((slide)=>slide.classList.remove('active')
             );
             document.querySelector(`${scrollerEl} .slide.${el.id}`).classList.add('active');
         },
         exit: (el)=>{
             const prevNode = document.querySelector(`${scrollerEl} .slide.${el.id}`).previousElementSibling;
-            if (prevNode) prevNode.classList.add('active');
-            document.querySelector(`${scrollerEl} .slide.${el.id}`).classList.remove('active');
+            if (prevNode) {
+                prevNode.classList.add('active');
+                document.querySelector(`${scrollerEl} .slide.${el.id}`).classList.remove('active');
+            }
         }
     });
 };
-const setWidths = (scrollerEl)=>{
+const _resize = (scrollerEl)=>{
     // set widths
     const { width  } = document.querySelector(scrollerEl).getBoundingClientRect();
-    // console.log(width);
+    // set heights
+    const height = window.innerHeight;
+    // console.log(height);
     document.querySelectorAll(`${scrollerEl} .slide`).forEach((slide)=>{
         slide.style.width = `${width}px`;
     });
+    document.querySelector(`${scrollerEl} .scroll-background `).style.height = `${height}px`;
+    document.querySelector(`${scrollerEl} .scroll-row`).style.height = `${height}px`;
 };
+exports.default = enterViewScrolly;
 
 },{"lodash.debounce":"2SFBF","enter-view":"1GQal","@parcel/transformer-js/src/esmodule-helpers.js":"hqLt5"}],"2SFBF":[function(require,module,exports) {
 var global = arguments[3];
