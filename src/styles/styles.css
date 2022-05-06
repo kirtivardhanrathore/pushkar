@@ -17,16 +17,17 @@ h1 {
 }
 
 h3{
-  color: #575756;
+  color: #FFFFFF
 }
 
 h5 {
   color: #6b6c72;
 }
 
-h6 {
+h5 {
   color: #c67c3b;
   line-height: 2;
+  font-weight: normal;
 }
 
 p {

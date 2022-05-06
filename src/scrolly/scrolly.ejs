@@ -146,6 +146,7 @@
     margin-bottom: 50vh;
   }
 
+  @media only screen and (min-width: 1000px) {
   .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground .anno-block .annotation{
     pointer-events: all;
     max-width: 25%; 
@@ -164,6 +165,52 @@
     height: fit-content;
     box-shadow: 7px 7px #F3C6A1;
   }
+}
+
+@media only screen and (max-width: 1000px) {
+  .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground .anno-block .annotation{
+    pointer-events: all;
+    max-width: 50%; 
+
+    /* border: 1px solid rgba(125, 96, 76, 0.95); */
+    border-radius: 10px;
+    right: 0%;
+    display: block;
+    position: absolute;
+    text-align: left;
+    color: white;
+    font-weight: 50;
+    margin: 0 auto 35px auto; 
+    background-color: #E99A3E;
+    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    height: fit-content;
+    box-shadow: 7px 7px #F3C6A1;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground .anno-block .annotation{
+    pointer-events: all;
+    max-width: 50%; 
+
+    /* border: 1px solid rgba(125, 96, 76, 0.95); */
+    border-radius: 10px;
+    right: 5%;
+    display: block;
+    position: absolute;
+    text-align: left;
+    color: white;
+    font-weight: 50;
+    margin: 0 auto 35px auto; 
+    background-color: #E99A3E;
+    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    height: fit-content;
+    box-shadow: 7px 7px #F3C6A1;
+  }
+}
+
+
 
   .<%= scrollerEl + "-scroll-wrapper" %> .scroll-foreground .anno-block .annotation p{
     margin-bottom: 0;
