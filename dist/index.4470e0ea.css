@@ -11473,14 +11473,29 @@ h1 {
 }
 
 h3 {
-  color: #fff;
+  color: #575756;
 }
 
 h5 {
   color: #6b6c72;
-  color: #c67c3b;
-  font-weight: normal;
-  line-height: 2;
+}
+
+@media only screen and (max-width: 600px) {
+  h5 {
+    color: #c67c3b;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  h5 {
+    color: #c67c3b;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2;
+  }
 }
 
 p {
@@ -11498,6 +11513,20 @@ a:hover {
 
 a:active {
   color: #868686;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 80%;
+    allign: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  img {
+    width: 50%;
+    allign: center;
+  }
 }
 
 /*# sourceMappingURL=index.4470e0ea.css.map */
